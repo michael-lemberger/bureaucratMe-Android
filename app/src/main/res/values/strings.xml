@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BureaucratMe</string>
+    <string name="id">מספר זהות</string>
+    <string name="save">save</string>
+    <string name="family_name">family name</string>
+    <string name="praivte_name">praivte name</string>
+    <string name="email">email</string>
+    <string name="phone">phone</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="id1">ID</string>
+</resources>
