@@ -25,11 +25,11 @@ public class PersonalDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_personal_details_acivity);
+        setContentView(R.layout.activity_personal_details);
 
         btnSave = (Button)findViewById(R.id.save);
         id = (EditText)findViewById(R.id.id);
-        privateName = (EditText)findViewById(R.id.privateName);
+        privateName = (EditText)findViewById(R.id.firstName);
         familyName = (EditText)findViewById(R.id.familyName);
         phoneNumber = (EditText)findViewById(R.id.phoneNumber);
         email = (EditText)findViewById(R.id.email);
@@ -53,9 +53,9 @@ public class PersonalDetailsActivity extends AppCompatActivity {
 
         dbId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if(!TextUtils.isEmpty(ID)){
-          Users user = new Users(ID, praName, fName, Email, phNumber, dbId);
-          usersDataBase.child(dbId).setValue(user);
-          Toast.makeText(this, "details updated",Toast.LENGTH_LONG).show();
+            Users user = new Users(ID, praName, fName, Email, phNumber, dbId);
+            usersDataBase.child(dbId).setValue(user);
+            Toast.makeText(this, "details updated",Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(this,"Enter ID!",Toast.LENGTH_LONG).show();
