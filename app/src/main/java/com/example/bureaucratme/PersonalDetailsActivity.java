@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class PersonalDetailsActivity extends AppCompatActivity {
 
     private Button btnSave;
-    private EditText id, privateName, familyName, phoneNumber, email;
+    private EditText id, firstName, familyName, phoneNumber, email;
     DatabaseReference usersDataBase;
     String dbId;
 
@@ -27,7 +27,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
 
         btnSave = (Button)findViewById(R.id.save);
         id = (EditText)findViewById(R.id.id);
-        privateName = (EditText)findViewById(R.id.firstName);
+        firstName = (EditText)findViewById(R.id.firstName);
         familyName = (EditText)findViewById(R.id.familyName);
         phoneNumber = (EditText)findViewById(R.id.phoneNumber);
         email = (EditText)findViewById(R.id.email);
@@ -45,21 +45,46 @@ public class PersonalDetailsActivity extends AppCompatActivity {
 
     private void addUser(){
         String ID = id.getText().toString().trim();
-        String praName = privateName.getText().toString().trim();
-        String fName = familyName.getText().toString().trim();
+        String frstName = firstName.getText().toString().trim();
+        String lstName = familyName.getText().toString().trim();
         String phNumber = phoneNumber.getText().toString().trim();
-        String Email = email.getText().toString().trim();
+        String eml = email.getText().toString().trim();
 
         dbId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        if(!TextUtils.isEmpty(ID)){
-            Users user = new Users(ID, praName, fName, Email, phNumber, dbId);
+
+        if(!isID(ID))
+            Toast.makeText(this, "Error. Wrong ID",Toast.LENGTH_SHORT).show();
+        else if(frstName.length() < 2)
+            Toast.makeText(this, "Error. Wrong First Name",Toast.LENGTH_SHORT).show();
+        else if (lstName.length() < 2)
+            Toast.makeText(this, "Error. Wront Family Name",Toast.LENGTH_SHORT).show();
+        else if((!eml.contains("@")) && (!eml.contains(".")))
+            Toast.makeText(this, "Error. Wrong Email",Toast.LENGTH_SHORT).show();
+        else if (phNumber.length() < 9)
+            Toast.makeText(this, "Error. Wrong Phone Number",Toast.LENGTH_SHORT).show();
+        else {
+            Users user = new Users(ID, frstName, lstName, eml, phNumber, dbId);
             usersDataBase.child(dbId).setValue(user);
             Toast.makeText(this, "details updated",Toast.LENGTH_LONG).show();
         }
-        else{
-            Toast.makeText(this,"Enter ID!",Toast.LENGTH_LONG).show();
+    }
+
+    //validation of ID
+    private boolean isID(String s) {
+        int x = 0 , y = 0;
+
+        if(s.length() < 9)
+            return false;
+
+        for (int i = 0; i < 9; i++) {
+            x = (s.charAt(i) - '0') * ((i % 2) + 1);
+            y += (x / 10) + (x % 10);
         }
 
+        if (y % 10 == 0)
+            return true;
+
+        return  false;
     }
 
 }

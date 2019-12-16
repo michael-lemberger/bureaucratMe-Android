@@ -12,7 +12,6 @@
 
         <activity android:name=".PersonalDetailsActivity"></activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">

@@ -57,9 +57,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent myIntent = new Intent(HomeActivity.this, PersonalDetailsActivity.class);
-        myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(myIntent);
-//        finish();
         return true;
     }
 

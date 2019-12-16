@@ -19,21 +19,30 @@
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="ID"/>
+        android:hint="ID"
+        android:inputType="number"
+        android:maxLength="9"
+        android:maxLines="1"
+        />
 
     <EditText
         android:id="@+id/firstName"
         android:layout_marginTop="150dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name" />
+        android:hint="First Name"
+        android:maxLines="1"
+        android:inputType="text"
+        />
 
     <EditText
         android:id="@+id/familyName"
         android:layout_marginTop="200dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Family Name" />
+        android:hint="Family Name"
+        android:maxLines="1"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/email"
@@ -41,7 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:maxLines="1"/>
 
     <EditText
         android:id="@+id/phoneNumber"
@@ -49,7 +59,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Phone Number"
-        android:inputType="number"/>
+        android:inputType="phone"
+        android:maxLength="10"
+        android:maxLines="1"/>
 
     <Button
         android:id="@+id/save"
