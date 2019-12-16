@@ -3,12 +3,10 @@ package com.example.bureaucratme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -69,13 +67,20 @@ public class PersonalDetailsActivity extends AppCompatActivity {
         }
     }
 
-    //validation of ID
+    /**
+     * ID validation
+     * @param s the ID
+     * @return if real id
+     */
     private boolean isID(String s) {
-        int x = 0 , y = 0;
+        int x , y = 0;
 
+        // if id less the 9 digits return false
         if(s.length() < 9)
             return false;
 
+        // check if id is real
+        //
         for (int i = 0; i < 9; i++) {
             x = (s.charAt(i) - '0') * ((i % 2) + 1);
             y += (x / 10) + (x % 10);

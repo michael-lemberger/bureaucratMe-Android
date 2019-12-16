@@ -6,24 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/btnBir1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="250dp"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="197dp" />
+        android:text="institution 1"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="400dp"/>
 
     <Button
-        android:id="@+id/btnSignOut"
+        android:id="@+id/btnBir2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LogOut"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="400dp"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="373dp" />
+        android:text="institution 2"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="200dp"/>
 
 </RelativeLayout>

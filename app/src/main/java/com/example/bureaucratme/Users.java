@@ -1,30 +1,8 @@
 package com.example.bureaucratme;
 
-import java.util.HashMap;
-
 public class Users {
-    /*
-        private HashMap<String, String> values;
-
-        public Users()
-        {
-            this.values = new HashMap<String, String>();
-        }
-
-        public void addValue(String name, String value)
-        {
-            values.put(name, value);
-        }
-
-        public String getValue(String name)
-        {
-            return values.get(name);
-        }
-
-     */
 
     private String _id, _privateName, _familyName, _phoneNumber, _email, _dbId;
-
 
     public Users(String id, String privateName, String familyName, String email, String phoneNumber, String dbId){
         _id = id;
