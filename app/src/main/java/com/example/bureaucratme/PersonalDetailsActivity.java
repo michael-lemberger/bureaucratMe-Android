@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class PersonalDetailsActivity extends AppCompatActivity {
-
+    //class variables.
     private Button btnSave;
     private EditText id, firstName, familyName, phoneNumber, email;
     DatabaseReference usersDataBase;
@@ -21,17 +21,21 @@ public class PersonalDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //integrate between layout and activity
         setContentView(R.layout.activity_personal_details);
-
+        
+        ////intitalize objects.
         btnSave = (Button)findViewById(R.id.save);
         id = (EditText)findViewById(R.id.id);
         firstName = (EditText)findViewById(R.id.firstName);
         familyName = (EditText)findViewById(R.id.familyName);
         phoneNumber = (EditText)findViewById(R.id.phoneNumber);
         email = (EditText)findViewById(R.id.email);
-
+        
+       // initalize refernce to firebase database.
         usersDataBase = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        
+        //set click listener, add user to data base on click.
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -40,14 +44,15 @@ public class PersonalDetailsActivity extends AppCompatActivity {
         });
     }
 
-
+    //build user object and upload to data base
     private void addUser(){
         String ID = id.getText().toString().trim();
         String frstName = firstName.getText().toString().trim();
         String lstName = familyName.getText().toString().trim();
         String phNumber = phoneNumber.getText().toString().trim();
         String eml = email.getText().toString().trim();
-
+        
+        //get the auth id of the current user.
         dbId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         if(!isID(ID))
@@ -62,6 +67,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
             Toast.makeText(this, "Error. Wrong Phone Number",Toast.LENGTH_SHORT).show();
         else {
             Users user = new Users(ID, frstName, lstName, eml, phNumber, dbId);
+            //update user object to the adjusted database
             usersDataBase.child(dbId).setValue(user);
             Toast.makeText(this, "details updated",Toast.LENGTH_LONG).show();
         }
