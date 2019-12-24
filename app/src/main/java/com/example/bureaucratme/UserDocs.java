@@ -1,47 +1,53 @@
 package com.example.bureaucratme;
 
 import java.io.IOException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+/*
+במחלקה הזאת צריך לממש את הקריאה מהדאטה בייס אל תוך משתמש
+ */
 
-public class FormFilling {
-    private Users user;
-   private Document doc;
+public class UserDocs {
+    private String docId;
+    private String userId;
 
+    public UserDocs(String docId, String userId){
+        this.docId = docId;
+        this.userId = userId;
+    }
 
+    public String getDocId() {
+        return docId;
+    }
 
-    public  void fill(String docPath) throws InterruptedException, IOException {
+    public String getUserId() {
+        return userId;
+    }
 
-        System.setProperty("webdriver.chrome.driver", "res\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+    public void setDocId(String docId) {
+        this.docId = docId;
+    }
 
-        driver.get("https://account.gov.il/sspr/public/newuser?forwardURL=https%3A%2F%2Fmy.gov.il%2Fsec&locale=iw&locale=he");
-        driver.manage().window().maximize();
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-        Thread.sleep(2000);
+    /*This method gets docUrl and userId(UID in the firebase auth.
+     read the appropriate data from firebase database and send it to Document object wich call the fill method.
+     */
+    public void fillForm(){{
+        /*
+        כאן צריך לשלוף משתמש ומסמך מהדאטה בייס ולשלוח לאובייקט המסמך
+         */
+        Users user = new Users(userId);
+        String docUrl = "\"https://account.gov.il/sspr/public/newuser?forwardURL=https%3A%2F%2Fmy.gov.il%2Fsec&locale=iw&locale=he\"";
+        Document doc = new Document(docUrl);
+        try {
+            doc.fill(user);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        driver.findElement(By.id("cn")).sendKeys("203668116");
-        driver.findElement(By.id("givenName")).sendKeys("לירון");
-        driver.findElement(By.id("sn")).sendKeys("ארד");
-        driver.findElement(By.id("mail")).sendKeys("lironarad1@gmail.com");
-        driver.findElement(By.id("mail_confirm")).sendKeys("lironarad1@gmail.com");
-        driver.findElement(By.id("mobile")).sendKeys("0534596473");
-        driver.findElement(By.id("mobile_confirm")).sendKeys("0534596473");
-        driver.findElement(By.id("radioSMS")).click();
-        driver.findElement(By.id("Identification1")).click();
-        driver.findElement(By.id("Identification3")).click();
-        driver.findElement(By.id("Identification2")).click();
-        driver.findElement(By.id("idIssueDateYear")).sendKeys("1992");
-        driver.findElement(By.id("idIssueDateMonth")).sendKeys("10");
-        driver.findElement(By.id("idIssueDateDay")).sendKeys("01");
-        driver.findElement(By.id("password1")).sendKeys("1234!Abcd");
-        driver.findElement(By.id("password2")).sendKeys("1234!Abcd");
-        driver.findElement(By.id("radioDisagree")).click();
-        driver.findElement(By.id("agreementConsentDiv")).click();
-
-        Thread.sleep(2000);
-
-        driver.close();
     }
 }

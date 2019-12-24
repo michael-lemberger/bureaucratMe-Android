@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
 
     FirebaseUser fu;
     FirebaseAuth mAuth;
+    private Button firstEntity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,16 @@ public class HomeActivity extends AppCompatActivity {
 
         fu = mAuth.getCurrentUser();
 //        if(fu != null) { }
+
+        init();
+
+        firstEntity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, EntityActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -53,6 +65,8 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
+    // onClickListner for login button
+
     /**
      * sign out and return to main activity
      */
@@ -65,5 +79,9 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(myIntent);
         finish();
 
+    }
+
+    private void init(){
+        firstEntity = findViewById(R.id.btnBir1);
     }
 }

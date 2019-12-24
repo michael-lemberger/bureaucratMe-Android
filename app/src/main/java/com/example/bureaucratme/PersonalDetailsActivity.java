@@ -11,6 +11,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+
 public class PersonalDetailsActivity extends AppCompatActivity {
     //class variables.
     private Button btnSave;
@@ -97,5 +99,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
 
         return  false;
     }
+
+
 
 }

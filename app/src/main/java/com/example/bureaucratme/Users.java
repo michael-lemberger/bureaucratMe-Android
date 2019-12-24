@@ -1,6 +1,25 @@
 package com.example.bureaucratme;
 
+import org.openqa.selenium.By;
+
 public class Users {
+    private String userID;
+
+    /*
+    אלה הפרטים שצריך בשביל הטופס הנסיוני, הוצאנו אותם מדף המקור
+     */
+    private String cn;
+    private String givenName;
+    private String sn;
+    private String mail;
+    private String mail_confirm;
+    private String mobile;
+    private String mobile_confirm;
+    private String idIssueDateYear;
+    private String idIssueDateMonth;
+    private String idIssueDateDay;
+    private String password1;
+    private String password2;
 
     private String _id, _privateName, _familyName, _phoneNumber, _email, _dbId;
 
@@ -13,52 +32,115 @@ public class Users {
         _dbId = dbId;
     }
 
-    public String get_id() {
-        return _id;
+    /*
+    כאן צריך להוסיף שליפה של הuid מהפיירבייס
+     */
+    public Users(String userId){
+        this.userID = userId;
     }
 
-    public String get_privateName() {
-        return _privateName;
+    public String getCn() {
+        return cn;
     }
 
-    public String get_familyName() {
-        return _familyName;
+    public String getGivenName() {
+        return givenName;
     }
 
-    public String get_phoneNumber() {
-        return _phoneNumber;
+    public String getSn() {
+        return sn;
     }
 
-    public String get_email() {
-        return _email;
+    public String getMail() {
+        return mail;
     }
 
-    public String get_dbId() {
-        return _dbId;
+    public String getMail_confirm() {
+        return mail_confirm;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void set_privateName(String _privateName) {
-        this._privateName = _privateName;
+    public String getMobile_confirm() {
+        return mobile_confirm;
     }
 
-    public void set_familyName(String _familyName) {
-        this._familyName = _familyName;
+    public String getIdIssueDateYear() {
+        return idIssueDateYear;
     }
 
-    public void set_phoneNumber(String _phoneNumber) {
-        this._phoneNumber = _phoneNumber;
+    public String getIdIssueDateMonth() {
+        return idIssueDateMonth;
     }
 
-    public void set_email(String _email) {
-        this._email = _email;
+    public String getIdIssueDateDay() {
+        return idIssueDateDay;
     }
 
-    public void set_dbId(String _dbId) {
-        this._dbId = _dbId;
+    public String getPassword1() {
+        return password1;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setCn(String cn) {
+        this.cn = cn;
+    }
+
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
+
+    public void setSn(String sn) {
+        this.sn = sn;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setMail_confirm(String mail_confirm) {
+        this.mail_confirm = mail_confirm;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public void setMobile_confirm(String mobile_confirm) {
+        this.mobile_confirm = mobile_confirm;
+    }
+
+    public void setIdIssueDateYear(String idIssueDateYear) {
+        this.idIssueDateYear = idIssueDateYear;
+    }
+
+    public void setIdIssueDateMonth(String idIssueDateMonth) {
+        this.idIssueDateMonth = idIssueDateMonth;
+    }
+
+    public void setIdIssueDateDay(String idIssueDateDay) {
+        this.idIssueDateDay = idIssueDateDay;
+    }
+
+    public void setPassword1(String password1) {
+        this.password1 = password1;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }
 
