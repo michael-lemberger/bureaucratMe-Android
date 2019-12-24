@@ -1,6 +1,5 @@
 package com.example.bureaucratme;
 
-import org.openqa.selenium.By;
 
 public class Users {
     private String userID;

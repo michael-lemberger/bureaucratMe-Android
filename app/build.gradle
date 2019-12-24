@@ -34,9 +34,10 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.3.0'
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.0'
-    implementation files('libs/res/selenium-3.9.1-nodeps.jar')
-    implementation files('libs/res/selenium-3.9.1-nodeps-sources.jar')
-    implementation files('libs/res/selenium-server-standalone-3.9.1.jar')
+
+
+    implementation 'com.itextpdf:itextg:5.5.10'
+
 }
 
 
