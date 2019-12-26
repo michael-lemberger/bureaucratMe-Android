@@ -3,6 +3,9 @@ package com.example.bureaucratme;
 
 public class Users {
     private String id, firstName, lastName, phoneNumber, email, dbId, birthdate, street, city, zip;
+
+    public Users() {}
+
     public Users(String id, String firstName, String lastName, String email, String phoneNumber,
                  String birthdate, String street, String city, String zip, String dbId){
         this.id = id;

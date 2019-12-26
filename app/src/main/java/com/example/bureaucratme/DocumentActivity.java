@@ -22,19 +22,27 @@ public class DocumentActivity extends AppCompatActivity {
     private Button btnSend, btnView, btnUpdate;
     private FirebaseUser fu;
     private FirebaseAuth mAuth;
-    FillDocument fd;
+    private FillDocument fd;
+    String dest, src;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_document);
 
+        Intent intn = getIntent();
+         src = intn.getStringExtra("src");
+         dest = intn.getStringExtra("dest");
+        Log.d("TAGG", src);
+        Log.d("TAGGGGG", dest);
         init();
 
         mAuth = FirebaseAuth.getInstance();
         fu = mAuth.getCurrentUser();
-        fd = new FillDocument(mAuth, fu);
+        fd = new FillDocument(mAuth, fu, src, dest);
 
+
+        fd.readFromDatabase();
 
         viewDoc();
         sendDoc();
@@ -48,7 +56,6 @@ public class DocumentActivity extends AppCompatActivity {
                 Intent intent = new Intent(DocumentActivity.this, PersonalDetailsActivity.class);
                 startActivity(intent);
 
-                fd.readFromDatabase();
 
                 fd.fillToPdf();
             }
@@ -56,7 +63,8 @@ public class DocumentActivity extends AppCompatActivity {
     }
 
     private void openDoc(){
-        File myFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/NewPdf.pdf");
+//        File myFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/NewPdf.pdf");
+        File myFile = new File(dest);
         Intent intent = new Intent();
         intent.setPackage("com.adobe.reader");
         intent.setDataAndType(Uri.fromFile(myFile), "application/pdf");

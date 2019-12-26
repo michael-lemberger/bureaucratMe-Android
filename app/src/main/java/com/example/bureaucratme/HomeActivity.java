@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,14 +47,20 @@ public class HomeActivity extends AppCompatActivity {
 
         init();
 
-        fp = new FillDocument(mAuth, fu);
-        fp.readFromDatabase();
 
         firstEntity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PdfToFill.pdf";
+                String dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/NewPdf.pdf";
+
+                fp = new FillDocument(mAuth, fu, src, dest);
+                fp.readFromDatabase();
+
                 fp.fillToPdf();
                 Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+                i.putExtra("src", src);
+                i.putExtra("dest", dest);
                 startActivity(i);
             }
         });
@@ -61,8 +68,18 @@ public class HomeActivity extends AppCompatActivity {
         secondEntity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fp.fillToPdf();
+                String src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf2.pdf";
+                String dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/newpdf2.pdf";
+                fp = new FillDocument(mAuth, fu, src, dest);
+                fp.readFromDatabase();
+//                fp.setSrc();
+//                fp.setDest();
+                fp.fillToPdf();
                 Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+//                Intent i = new Intent(HomeActivity.this, AdminActivity.class);
+                i.putExtra("src", src);
+                i.putExtra("dest", dest);
+
                 startActivity(i);
             }
         });

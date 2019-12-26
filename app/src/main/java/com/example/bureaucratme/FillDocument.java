@@ -30,15 +30,15 @@ public class FillDocument {
     private HashMap<String, String> map;
 
 
-    public FillDocument(FirebaseAuth mAuth, FirebaseUser fu) {
-        this.mAuth = FirebaseAuth.getInstance();
-        this.fu = mAuth.getCurrentUser();
-        this.firebaseDatabase = FirebaseDatabase.getInstance();
-        this.mReference = firebaseDatabase.getReference("Users");
-        this.map = new HashMap<>();
-        this.src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PdfToFill.pdf";
-        this.dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/NewPdf.pdf";
-    }
+//    public FillDocument(FirebaseAuth mAuth, FirebaseUser fu) {
+//        this.mAuth = FirebaseAuth.getInstance();
+//        this.fu = mAuth.getCurrentUser();
+//        this.firebaseDatabase = FirebaseDatabase.getInstance();
+//        this.mReference = firebaseDatabase.getReference("Users");
+//        this.map = new HashMap<>();
+//        this.src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PdfToFill.pdf";
+//        this.dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/NewPdf.pdf";
+//    }
 
     public FillDocument(FirebaseAuth mAuth, FirebaseUser fu, String src, String dest) {
         this.mAuth = FirebaseAuth.getInstance();
@@ -107,5 +107,21 @@ public class FillDocument {
         } catch (Exception e) {
 
         }
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    public String getDest() {
+        return dest;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
     }
 }

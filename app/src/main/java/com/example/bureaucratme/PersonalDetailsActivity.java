@@ -48,15 +48,15 @@ public class PersonalDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_details);
 
-            firebaseDatabase = FirebaseDatabase.getInstance();
-            mReference = firebaseDatabase.getReference("Users");
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mReference = firebaseDatabase.getReference("Users");
 
         mAuth = FirebaseAuth.getInstance();
         fu = mAuth.getCurrentUser();
 
         init();
 
-        ReadFromDatabase();
+        readFromDatabase();
 
        // initalize refernce to firebase database.
         usersDataBase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -99,7 +99,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
         };
     }
 
-    public void ReadFromDatabase() {
+    public void readFromDatabase() {
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
