@@ -1,87 +1,73 @@
 package com.example.bureaucratme;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.pdf.PdfDocument;
-import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
-import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.itextpdf.text.pdf.AcroFields;
-import com.itextpdf.text.pdf.PdfReader;
-
-import java.io.InputStream;
-import java.util.Set;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeActivity extends AppCompatActivity {
 
-    FirebaseUser fu;
-    FirebaseAuth mAuth;
-    TextView txt;
-    private Button firstEntity;
+    private FirebaseUser fu;
+    private FirebaseAuth mAuth;
+    private TextView txt;
+    private Button firstEntity, secondEntity;
+    private FillDocument fp;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference mReference;
 
-    Intent mi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home);
 
         txt = findViewById(R.id.textView123);
 
-        mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mReference = firebaseDatabase.getReference("Users");
 
+        mAuth = FirebaseAuth.getInstance();
         fu = mAuth.getCurrentUser();
 //        if(fu != null) { }
 
         init();
 
+        fp = new FillDocument(mAuth, fu);
+        fp.readFromDatabase();
+
         firstEntity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getElementsFromPDF();
+                fp.fillToPdf();
+                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+                startActivity(i);
             }
         });
 
-
-    }
-
-    private void getElementsFromPDF(){
-        String y = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PdfToFill.pdf";
-
-        try{
-            PdfReader reader = new PdfReader( y );
-
-            AcroFields fields = reader.getAcroFields();
-
-            Set<String> fldNames = fields.getFields().keySet();
-
-            for (String fldName : fldNames) {
-                Toast.makeText(HomeActivity.this, fldName + ": " + fields.getField( fldName ), Toast.LENGTH_SHORT).show();
+        secondEntity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                fp.fillToPdf();
+                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+                startActivity(i);
             }
-
-
-        }catch (Exception e) {
-            Toast.makeText(HomeActivity.this, ""+ e.getMessage(), Toast.LENGTH_SHORT).show();
-
-        }
+        });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -100,11 +86,8 @@ public class HomeActivity extends AppCompatActivity {
                 signOut();
                 break;
         }
-
         return true;
     }
-
-    // onClickListner for login button
 
     /**
      * sign out and return to main activity
@@ -122,5 +105,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init(){
         firstEntity = findViewById(R.id.btnBir1);
+        secondEntity = findViewById(R.id.btnBir2);
     }
 }

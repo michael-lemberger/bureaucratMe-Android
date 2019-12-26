@@ -2,144 +2,95 @@ package com.example.bureaucratme;
 
 
 public class Users {
-    private String userID;
-
-    /*
-    אלה הפרטים שצריך בשביל הטופס הנסיוני, הוצאנו אותם מדף המקור
-     */
-    private String cn;
-    private String givenName;
-    private String sn;
-    private String mail;
-    private String mail_confirm;
-    private String mobile;
-    private String mobile_confirm;
-    private String idIssueDateYear;
-    private String idIssueDateMonth;
-    private String idIssueDateDay;
-    private String password1;
-    private String password2;
-
-    private String _id, _privateName, _familyName, _phoneNumber, _email, _dbId;
-
-    public Users(String id, String privateName, String familyName, String email, String phoneNumber, String dbId){
-        _id = id;
-        _privateName = privateName;
-        _familyName = familyName;
-        _email = email;
-        _phoneNumber = phoneNumber;
-        _dbId = dbId;
+    private String id, firstName, lastName, phoneNumber, email, dbId, birthdate, street, city, zip;
+    public Users(String id, String firstName, String lastName, String email, String phoneNumber,
+                 String birthdate, String street, String city, String zip, String dbId){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.birthdate = birthdate;
+        this.street = street;
+        this.city = city;
+        this.zip = zip;
+        this.dbId = dbId;
     }
 
-    /*
-    כאן צריך להוסיף שליפה של הuid מהפיירבייס
-     */
-    public Users(String userId){
-        this.userID = userId;
+    public String getBirthdate() { return birthdate; }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
-    public String getCn() {
-        return cn;
+    public String getStreet() {
+        return street;
     }
 
-    public String getGivenName() {
-        return givenName;
+    public void setStreet(String street) { this.street = street; }
+
+    public String getCity() {
+        return city;
     }
 
-    public String getSn() {
-        return sn;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getMail() {
-        return mail;
+    public String getZip() {
+        return zip;
     }
 
-    public String getMail_confirm() {
-        return mail_confirm;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getId() {
+        return id;
     }
 
-    public String getMobile_confirm() {
-        return mobile_confirm;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getIdIssueDateYear() {
-        return idIssueDateYear;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getIdIssueDateMonth() {
-        return idIssueDateMonth;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getIdIssueDateDay() {
-        return idIssueDateDay;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getPassword1() {
-        return password1;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPassword2() {
-        return password2;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setCn(String cn) {
-        this.cn = cn;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSn(String sn) {
-        this.sn = sn;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public String getDbId() {
+        return dbId;
     }
 
-    public void setMail_confirm(String mail_confirm) {
-        this.mail_confirm = mail_confirm;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public void setMobile_confirm(String mobile_confirm) {
-        this.mobile_confirm = mobile_confirm;
-    }
-
-    public void setIdIssueDateYear(String idIssueDateYear) {
-        this.idIssueDateYear = idIssueDateYear;
-    }
-
-    public void setIdIssueDateMonth(String idIssueDateMonth) {
-        this.idIssueDateMonth = idIssueDateMonth;
-    }
-
-    public void setIdIssueDateDay(String idIssueDateDay) {
-        this.idIssueDateDay = idIssueDateDay;
-    }
-
-    public void setPassword1(String password1) {
-        this.password1 = password1;
-    }
-
-    public void setPassword2(String password2) {
-        this.password2 = password2;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setDbId(String dbId) {
+        this.dbId = dbId;
     }
 }
 

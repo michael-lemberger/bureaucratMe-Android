@@ -7,16 +7,16 @@
     tools:context=".PersonalDetailsActivity">
 
     <TextView
-        android:id="@+id/personalDetails"
-        android:layout_marginTop="50dp"
+        android:id="@+id/tvPersonalDetails"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Personal Details"
         />
 
     <EditText
-        android:id="@+id/id"
-        android:layout_marginTop="100dp"
+        android:id="@+id/etId"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ID"
@@ -26,8 +26,8 @@
         />
 
     <EditText
-        android:id="@+id/firstName"
-        android:layout_marginTop="150dp"
+        android:id="@+id/etFirstName"
+        android:layout_marginTop="90dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="First Name"
@@ -36,8 +36,8 @@
         />
 
     <EditText
-        android:id="@+id/familyName"
-        android:layout_marginTop="200dp"
+        android:id="@+id/etFamilyName"
+        android:layout_marginTop="140dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Family Name"
@@ -45,8 +45,8 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/email"
-        android:layout_marginTop="250dp"
+        android:id="@+id/etEmail"
+        android:layout_marginTop="190dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
@@ -54,8 +54,8 @@
         android:maxLines="1"/>
 
     <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_marginTop="300dp"
+        android:id="@+id/etPhoneNumber"
+        android:layout_marginTop="240dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Phone Number"
@@ -64,8 +64,50 @@
         android:maxLines="1"/>
 
     <Button
-        android:id="@+id/save"
-        android:layout_marginTop="350dp"
+        android:id="@+id/btnBirthDate"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="choose Birthdate"/>
+
+    <TextView
+        android:id="@+id/tvBirthDate"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Birthdate"/>
+
+    <EditText
+        android:id="@+id/etStreet"
+        android:layout_marginTop="340dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street"
+        android:maxLines="1"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_marginTop="390dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:maxLines="1"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/etZip"
+        android:layout_marginTop="440dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zip"
+        android:maxLines="1"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_marginTop="490dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Save" />
