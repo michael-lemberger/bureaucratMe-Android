@@ -37,6 +37,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array dbTags
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1182,6 +1183,7 @@ id btnRegister
 id btnSave
 id btnSend
 id btnSignIn
+id btnSignInAdmin
 id btnSignUp
 id btnUpdate
 id btnView
@@ -1203,6 +1205,16 @@ id coordinator
 id custom
 id customPanel
 id dark
+id dbTags_spinner
+id dbTags_spinner10
+id dbTags_spinner2
+id dbTags_spinner3
+id dbTags_spinner4
+id dbTags_spinner5
+id dbTags_spinner6
+id dbTags_spinner7
+id dbTags_spinner8
+id dbTags_spinner9
 id decor_content_parent
 id default_activity_button
 id design_bottom_sheet
@@ -1214,6 +1226,15 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id docTag
+id docTag2
+id docTag3
+id docTag4
+id docTag5
+id docTag6
+id docTag7
+id docTag8
+id docTag9
 id edit_query
 id end
 id enterAlways
@@ -1433,6 +1454,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_admin
+layout activity_admin_login
 layout activity_document
 layout activity_home
 layout activity_login

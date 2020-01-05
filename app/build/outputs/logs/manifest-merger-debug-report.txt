@@ -172,10 +172,14 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\li
 		ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
 		ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:15:9-40
-activity#com.example.bureaucratme.AdminActivity
-ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:16:9-60
+activity#com.example.bureaucratme.AdminLoginActivity
+ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:16:9-65
 	android:name
-		ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:16:19-48
+		ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:16:19-53
+activity#com.example.bureaucratme.AdminActivity
+ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:17:9-51
+	android:name
+		ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:17:19-48
 activity#com.example.bureaucratme.DocumentActivity
 ADDED from C:\Users\liron\Desktop\studies\Software Engineering\bureaucratMe\app\src\main\AndroidManifest.xml:18:9-54
 	android:name

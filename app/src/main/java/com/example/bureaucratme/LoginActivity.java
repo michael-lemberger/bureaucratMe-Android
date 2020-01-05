@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (etEmail.getText().toString().isEmpty() || etPass.getText().toString().isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Login ith email
+                    // Login with email
                     mAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPass.getText().toString())
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override

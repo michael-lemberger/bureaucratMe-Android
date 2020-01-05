@@ -1472,6 +1472,10 @@
         "source": "C:\\Users\\liron\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin.xml.flat",
+        "source": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\src\\main\\res\\layout\\activity_admin.xml"
+    },
+    {
         "merged": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_abc_btn_colored_material.xml.flat",
         "source": "C:\\Users\\liron\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
@@ -1742,6 +1746,10 @@
     {
         "merged": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "C:\\Users\\liron\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin_login.xml.flat",
+        "source": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\src\\main\\res\\layout\\activity_admin_login.xml"
     },
     {
         "merged": "C:\\Users\\liron\\Desktop\\studies\\Software Engineering\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",

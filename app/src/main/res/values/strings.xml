@@ -8,4 +8,16 @@
     <string name="phone">phone</string>
     <string name="personal_details">Personal Details</string>
     <string name="id1">ID</string>
+
+    <string-array name="dbTags">
+        <item>Birth Date</item>
+        <item>City</item>
+        <item>Email</item>
+        <item>First Name</item>
+        <item>Last Name</item>
+        <item>ID</item>
+        <item>Phone Number:</item>
+        <item>Street</item>
+        <item>Zip</item>
+    </string-array>
 </resources>
