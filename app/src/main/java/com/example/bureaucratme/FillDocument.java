@@ -51,31 +51,31 @@ public class FillDocument {
     }
 
 
-    public void readFromDatabase() {
-        mReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    if(ds.child("dbId").getValue().equals(fu.getUid())) {
-                        map.put("id", ds.child("id").getValue(String.class));
-                        map.put("email", ds.child("email").getValue(String.class));
-                        map.put("firstName", ds.child("firstName").getValue(String.class));
-                        map.put("lastName", ds.child("lastName").getValue(String.class));
-                        map.put("phone", ds.child("phoneNumber").getValue(String.class));
-                        map.put("birthDate", ds.child("birthdate").getValue(String.class));
-                        map.put("street", ds.child("street").getValue(String.class));
-                        map.put("city", ds.child("city").getValue(String.class));
-                        map.put("zip", ds.child("zip").getValue(String.class));
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    public void readFromDatabase() {
+//        mReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+//                    if(ds.child("dbId").getValue().equals(fu.getUid())) {
+//                        map.put("id", ds.child("id").getValue(String.class));
+//                        map.put("email", ds.child("email").getValue(String.class));
+//                        map.put("firstName", ds.child("firstName").getValue(String.class));
+//                        map.put("lastName", ds.child("lastName").getValue(String.class));
+//                        map.put("phone", ds.child("phoneNumber").getValue(String.class));
+//                        map.put("birthDate", ds.child("birthdate").getValue(String.class));
+//                        map.put("street", ds.child("street").getValue(String.class));
+//                        map.put("city", ds.child("city").getValue(String.class));
+//                        map.put("zip", ds.child("zip").getValue(String.class));
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
     public void fillToPdf() {
         String x ;

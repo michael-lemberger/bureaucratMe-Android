@@ -22,6 +22,7 @@ public class DocumentActivity extends AppCompatActivity {
     private Button btnSend, btnView, btnUpdate;
     private FirebaseUser fu;
     private FirebaseAuth mAuth;
+    private Document doc;
     private FillDocument fd;
     String dest, src;
 
@@ -42,7 +43,7 @@ public class DocumentActivity extends AppCompatActivity {
         fd = new FillDocument(mAuth, fu, src, dest);
 
 
-        fd.readFromDatabase();
+        doc.readValues();
 
         viewDoc();
         sendDoc();
@@ -75,7 +76,7 @@ public class DocumentActivity extends AppCompatActivity {
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fd.readFromDatabase();
+                doc.readValues();
                 fd.fillToPdf();
 
                 openDoc();
@@ -87,7 +88,7 @@ public class DocumentActivity extends AppCompatActivity {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fd.readFromDatabase();
+                doc.readValues();
                 fd.fillToPdf();
 
                 // need to do
