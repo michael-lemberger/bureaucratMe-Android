@@ -61,6 +61,8 @@ public class HomeActivity extends AppCompatActivity {
                 Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
                 i.putExtra("src", src);
                 i.putExtra("dest", dest);
+                i.putExtra("institution", "MaccabiHMO");
+                i.putExtra("file", "maccabi1.pdf");
                 startActivity(i);
             }
         });
@@ -72,13 +74,12 @@ public class HomeActivity extends AppCompatActivity {
                 String dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/newpdf2.pdf";
                 fp = new FillDocument(mAuth, fu, src, dest);
                 fp.readFromDatabase();
-//                fp.setSrc();
-//                fp.setDest();
                 fp.fillToPdf();
                 Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
-//                Intent i = new Intent(HomeActivity.this, AdminActivity.class);
                 i.putExtra("src", src);
                 i.putExtra("dest", dest);
+
+//                Intent i = new Intent(HomeActivity.this, AdminActivity.class);
 
                 startActivity(i);
             }

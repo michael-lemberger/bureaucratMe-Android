@@ -1,6 +1,7 @@
 package com.example.bureaucratme;
 
 import android.os.Environment;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -105,7 +106,7 @@ public class FillDocument {
             reader.close();
 
         } catch (Exception e) {
-
+            Log.d("TAGGGGGGG" , e.getMessage()+"");
         }
     }
 
