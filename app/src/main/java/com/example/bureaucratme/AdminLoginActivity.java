@@ -23,14 +23,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class AdminLoginActivity extends AppCompatActivity {
 
     private Button btnLogin;
     private EditText etEmail;
     private EditText etPass;
     private FirebaseAuth mAuth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference mReference;
+
+    private ArrayList<String> Admins = new ArrayList<String>();
 
 
 
@@ -40,37 +42,36 @@ public class AdminLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_login);
 
         mAuth = FirebaseAuth.getInstance();
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        mReference = firebaseDatabase.getReference("Admins");
+        UpdateAdminList();
 
         init();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Email = etEmail.getText().toString();
-                String Password = etPass.getText().toString();
+                String email = etEmail.getText().toString();
+                String password = etPass.getText().toString();
                 // Check if email and password not empty
-                if (Email.isEmpty() || Password.isEmpty()) {
+                if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(AdminLoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
                 } else {
-                   if(checkByMail(Email)) {
+                   if(Admins.contains(email)) {
                         // Login with email
-                        mAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPass.getText().toString())
+                        mAuth.signInWithEmailAndPassword(email, password)
                                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         // If login successfully open home activity and finish current activity
                                         // Else show error massage
                                         if (task.isSuccessful()) {
-                                            Intent i = new Intent(AdminLoginActivity.this, HomeActivity.class);
+                                            Intent i = new Intent(AdminLoginActivity.this, AdminActivity.class);
                                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(i);
                                             finish();
                                         } else {
                                             Toast.makeText(AdminLoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                         }
+
                                     }
                                 });
                     }
@@ -90,30 +91,12 @@ public class AdminLoginActivity extends AppCompatActivity {
         etPass = findViewById(R.id.etPassword);
     }
 
-    boolean flag = false;
 
-    private boolean checkByMail(String email){
+    private void UpdateAdminList(){
+        Admins.add("lironarad@gmail.com");
+        Admins.add("admin1@gmail.com");
 
-//        DatabaseReference databaseReference = mReference.child(email);
-            mReference.orderByChild("Email").equalTo(email).addValueEventListener(new ValueEventListener() {
-
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        flag = true;
-                        Log.d("1111111111", ""+flag);
-                    }
-                }
-                @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-            }
-            });
-        Log.d("222222222", ""+flag);
-        return flag;
     }
-
 
 
 }

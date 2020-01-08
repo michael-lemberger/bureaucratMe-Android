@@ -70,14 +70,6 @@
         android:layout_marginTop="508dp"
         android:text="TextView" />
 
-    <Spinner
-        android:id="@+id/dbTags_spinner2"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/docTag"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
-
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -94,7 +86,15 @@
         android:text="TextView" />
 
     <Spinner
-        android:id="@+id/dbTags_spinner"
+        android:id="@+id/dbTags_spinner1"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/docTag"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
+    <Spinner
+        android:id="@+id/dbTags_spinner2"
         android:layout_centerHorizontal="true"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
@@ -156,14 +156,6 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/docTag"
         android:layout_marginTop="423dp" />
-
-    <Spinner
-        android:id="@+id/dbTags_spinner10"
-        android:layout_centerHorizontal="true"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/docTag"
-        android:layout_marginTop="475dp" />
 
     <Button
         android:id="@+id/btnSave"

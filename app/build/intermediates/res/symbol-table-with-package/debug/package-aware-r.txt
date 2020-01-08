@@ -1205,7 +1205,7 @@ id coordinator
 id custom
 id customPanel
 id dark
-id dbTags_spinner
+id dbTags_spinner1
 id dbTags_spinner10
 id dbTags_spinner2
 id dbTags_spinner3

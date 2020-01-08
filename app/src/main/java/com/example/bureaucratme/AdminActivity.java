@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class AdminActivity extends AppCompatActivity {
 
     private EditText docTag, dbTag;
@@ -22,6 +24,7 @@ public class AdminActivity extends AppCompatActivity {
     private Button btnSave;
     FirebaseAuth mAuth;
     FirebaseUser fu;
+    Spinner[] dbTags;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +36,15 @@ public class AdminActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         fu = mAuth.getCurrentUser();
-
-        Spinner spinner = (Spinner) findViewById(R.id.dbTags_spinner);
-        ArrayAdapter<CharSequence> sp = ArrayAdapter.createFromResource(this, R.array.dbTags, android.R.layout.simple_spinner_item);
-        sp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(sp);
+        dbTags = new Spinner[9];
+            for(int i = 0; i<dbTags.length; i++) {
+                String Spinner = "dbTags_spinner"+(i+1);
+                int resID = getResources().getIdentifier(Spinner, "id", getPackageName());
+                dbTags[i] = (Spinner) findViewById(resID);
+                ArrayAdapter<CharSequence> sp = ArrayAdapter.createFromResource(this, R.array.dbTags, android.R.layout.simple_spinner_item);
+                sp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                dbTags[i].setAdapter(sp);
+            }
 
         //init();
 
