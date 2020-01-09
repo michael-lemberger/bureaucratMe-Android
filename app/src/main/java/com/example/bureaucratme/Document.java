@@ -1,5 +1,7 @@
 package com.example.bureaucratme;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,22 +29,22 @@ public class Document {
         this.fu = mAuth.getCurrentUser();
         this.firebaseDatabase = FirebaseDatabase.getInstance();
         this.mReference = firebaseDatabase.getReference("Users");
-    }
-
-    public void fillTags(String docTag, String dbTag){
-        docTags.add(docTag);
-        dbTags.add(dbTag);
+        docTags= new ArrayList<String>();
+        dbTags=new ArrayList<String>();
+        values= new HashMap<String, String>();
     }
 
     public void readValues(){
+
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     if(ds.child("dbId").getValue().equals(fu.getUid())) {
+                        int i=0;
                         for(String value: dbTags) {
-                            for (String tag : docTags) {
-                                values.put(tag , ds.child(value).getValue(String.class));
+                            {
+                                values.put(docTags.get(i++) , ds.child(value).getValue(String.class));
                             }
                         }
                     }
@@ -54,5 +56,18 @@ public class Document {
 
             }
         });
+    }
+
+    public HashMap<String,String> getValues(String[] tags, String[] dbValues){
+       for(int i=0; i<tags.length;i++){
+            docTags.add(tags[i]);
+        }
+       for(int i=0; i<dbValues.length;i++){
+            dbTags.add(dbValues[i]);
+        }
+
+       readValues();
+
+       return values;
     }
 }

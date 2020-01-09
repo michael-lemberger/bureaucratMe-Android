@@ -2,7 +2,9 @@ package com.example.bureaucratme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,15 +18,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class AdminActivity extends AppCompatActivity {
-
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference mReference;
     private Button btnSave;
-    FirebaseAuth mAuth;
-    FirebaseUser fu;
     private Spinner[] dbTags;
     private EditText[] docTags;
     private String tags[];
@@ -37,22 +44,13 @@ public class AdminActivity extends AppCompatActivity {
 
         init();
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        mReference = firebaseDatabase.getReference("Users");
-
-        mAuth = FirebaseAuth.getInstance();
-        fu = mAuth.getCurrentUser();
-
-
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                addUser();
+                extractText();
             }
         });
     }
-
-
 
     private void init() {
 
@@ -77,10 +75,35 @@ public class AdminActivity extends AppCompatActivity {
 
     }
 
-    private void addUser() {
+    private void extractText() {
         for (int i = 0; i <dbvalues.length; i++) {
             dbvalues[i] = dbTags[i].getSelectedItem().toString();
             tags[i]= docTags[i].getText().toString();
         }
+
+        try {
+            prepareText();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private void prepareText() throws IOException {
+        Document doc= new Document();
+        HashMap<String,String> map = doc.getValues(tags,dbvalues);
+       Iterator it = map.entrySet().iterator();
+       File root = new File (Environment.getExternalStorageDirectory(),"Notes" );
+       if(!root.exists()){
+           root.mkdirs();
+       }
+       File myfile= new File(root, "massage");
+       FileWriter fw= new FileWriter(myfile);
+       fw.append("rrrrrrrrrrrrrrr");
+       fw.flush();
+       fw.close();
+       while (it.hasNext()){
+           Map.Entry pair = (Map.Entry)it.next();
+       }
+    }
+
 }
