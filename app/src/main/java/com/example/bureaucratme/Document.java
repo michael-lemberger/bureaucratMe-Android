@@ -35,7 +35,6 @@ public class Document {
     }
 
     public void readValues(){
-
         mReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

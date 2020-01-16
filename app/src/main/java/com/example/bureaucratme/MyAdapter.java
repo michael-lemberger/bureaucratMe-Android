@@ -19,7 +19,7 @@ import javax.xml.transform.Templates;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    private int x;
+    private ActivityEnum activityEnum;
     private ArrayList<?> arrayList;
     private Activity activity;
     private Context context;
@@ -31,11 +31,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         this.context = activity;
     }
 
-    public MyAdapter(Activity activity, ArrayList<?> arrayList, int x) {
+    public MyAdapter(Activity activity, ArrayList<?> arrayList, ActivityEnum activityEnum) {
         this.arrayList = arrayList;
         this.activity = activity;
         this.context = activity;
-        this.x = x;
+        this.activityEnum = activityEnum;
     }
 
 
@@ -50,7 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int position) {
-        if(x == 1) {
+        if(this.activityEnum == ActivityEnum.FORMCHOOSERACTIVITY) {
             myViewHolder.getBtnFileName().setText(((FilesData) arrayList.get(position)).getFilename());
 
             myViewHolder.getBtnFileName().setOnClickListener(new View.OnClickListener() {
@@ -63,15 +63,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 }
             });
         }
-        else if(x == 2) {
+
+        else if(this.activityEnum == ActivityEnum.HOMEACTIVITY) {
             myViewHolder.getBtnFileName().setText(arrayList.get(position).toString());
 
             myViewHolder.getBtnFileName().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    String s = arrayList.get(position)+"";
                     Intent i = new Intent(activity, FormChooserActivity.class);
-                    if (x == 2)
-                        i.putExtra("institution", (arrayList.get(position)).toString());
+                    i.putExtra("institution", (arrayList.get(position)).toString());
                     context.startActivity(i);
                 }
             });

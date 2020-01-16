@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class FormChooserActivity extends AppCompatActivity {
 
-    private Button btnForm;
     private FirebaseDatabase firebaseDatabase;
     private RecyclerView recyclerView;
     private ArrayList<FilesData> arrayList = new ArrayList<>();
@@ -82,7 +81,7 @@ public class FormChooserActivity extends AppCompatActivity {
                     arrayList.add(filesData);
                 }
 
-                mAdapter = new MyAdapter(FormChooserActivity.this, arrayList, 1);
+                mAdapter = new MyAdapter(FormChooserActivity.this, arrayList, ActivityEnum.FORMCHOOSERACTIVITY);
                 recyclerView.setAdapter(mAdapter);
             }
 
