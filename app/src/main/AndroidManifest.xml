@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".PdfViewerActivity"></activity>
         <activity android:name=".FormChooserActivity" />
         <activity android:name=".AdminLoginActivity"></activity>
