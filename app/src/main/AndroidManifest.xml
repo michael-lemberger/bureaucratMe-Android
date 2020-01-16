@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminActivity"></activity>
-
+        <activity android:name=".PdfViewerActivity"></activity>
+        <activity android:name=".FormChooserActivity" />
         <activity android:name=".DocumentActivity" />
         <activity android:name=".PersonalDetailsActivity" />
         <activity android:name=".RegisterActivity" />

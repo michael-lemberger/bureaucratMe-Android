@@ -51,16 +51,9 @@ public class HomeActivity extends AppCompatActivity {
         firstEntity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/PdfToFill.pdf";
-                String dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/NewPdf.pdf";
 
-                fp = new FillDocument(mAuth, fu, src, dest);
-                fp.readFromDatabase();
-
-                fp.fillToPdf();
-                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
-                i.putExtra("src", src);
-                i.putExtra("dest", dest);
+//                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+                Intent i = new Intent(HomeActivity.this, FormChooserActivity.class);
                 i.putExtra("institution", "MaccabiHMO");
                 i.putExtra("file", "maccabi1.pdf");
                 startActivity(i);
@@ -70,16 +63,11 @@ public class HomeActivity extends AppCompatActivity {
         secondEntity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf2.pdf";
-                String dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/newpdf2.pdf";
-                fp = new FillDocument(mAuth, fu, src, dest);
-                fp.readFromDatabase();
-                fp.fillToPdf();
-                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
-                i.putExtra("src", src);
-                i.putExtra("dest", dest);
+//                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+                Intent i = new Intent(HomeActivity.this, FormChooserActivity.class);
 
-//                Intent i = new Intent(HomeActivity.this, AdminActivity.class);
+                i.putExtra("institution", "MaccabiHMO");
+                i.putExtra("file", "maccabi1.pdf");
 
                 startActivity(i);
             }
