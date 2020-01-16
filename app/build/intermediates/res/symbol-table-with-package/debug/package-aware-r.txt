@@ -1188,10 +1188,9 @@ id barrier
 id beginning
 id blocking
 id bottom
-id btnBir1
-id btnBir2
 id btnBirthDate
 id btnDownload
+id btnFileName
 id btnGmailSignIn
 id btnLogin
 id btnRegister
@@ -1273,6 +1272,7 @@ id fill_vertical
 id filled
 id fixed
 id forever
+id formChooserRecycler
 id ghost_view
 id gifImg
 id gone
@@ -1280,6 +1280,7 @@ id group_divider
 id groups
 id home
 id homeAsUp
+id homeRecycler
 id icon
 id icon_group
 id icon_only
@@ -1328,7 +1329,6 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
-id recycler
 id right
 id right_icon
 id right_side
@@ -1389,7 +1389,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView123
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1407,7 +1406,6 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id tvBirthDate
-id tvFileName
 id tvPersonalDetails
 id unchecked
 id uniform

@@ -2,6 +2,7 @@ package com.example.bureaucratme;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -64,52 +65,40 @@ public class FormChooserActivity extends AppCompatActivity {
     }
 
     private void readFromFirebase() {
-//        if(arrayList.size() > 0)
-//            arrayList.clear();
+        if(arrayList.size() > 0)
+            arrayList.clear();
 
-//        reference.child("EmptyFiles").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-//                    String s1 = ds.child("FileName").getValue(String.class);
-//                    String s2 = ds.child("Link").getValue(String.class);
-//                    FilesData filesData = new FilesData(s1, s2);
-//
-//                    arrayList.add(filesData);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Log.d("TAGGG", "ERROR");
-//            }
-//        });
+        DatabaseReference ref = reference.child("EmptyFiles").child(institution);
 
-        reference.child("EmptyFiles").addListenerForSingleValueEvent(new ValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String s1 = ds.child("FileName").getValue(String.class);
-                    String s2 = ds.child("Link").getValue(String.class);
-                    FilesData filesData = new FilesData(s1, s2);
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    FilesData filesData = new FilesData(ds.child("Link").getValue(String.class),
+                            ds.child("FileName").getValue(String.class),
+                            ds.child("InstitutionName").getValue(String.class),
+                            ds.child("NameInStorage").getValue(String.class));
 
                     arrayList.add(filesData);
                 }
+
+                mAdapter = new MyAdapter(FormChooserActivity.this, arrayList, 1);
+                recyclerView.setAdapter(mAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("TAGGG", "ERROR");
-            }
-        });
 
-        mAdapter = new MyAdapter(FormChooserActivity.this, arrayList);
-        recyclerView.setAdapter(mAdapter);
+            }
+        };
+
+        ref.addListenerForSingleValueEvent(valueEventListener);
     }
 
     private void init() {
-//        btnForm = findViewById(R.id.btnForm);
-        recyclerView = findViewById(R.id.recycler);
+        recyclerView = findViewById(R.id.formChooserRecycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 

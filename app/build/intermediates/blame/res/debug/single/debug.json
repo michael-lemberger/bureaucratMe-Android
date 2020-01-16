@@ -8,24 +8,24 @@
         "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_checkbox_to_unchecked_box_inner_merged_animation.xml.flat",
-        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
+        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\fc9a8d5df99331dac9a5fdc49a7080c6\\play-services-base-17.1.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
-        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_design_bottom_navigation_item_background.xml.flat",
-        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\4f3544d200097d1926e6df3e9bf8bd41\\material-1.0.0\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_checkbox_to_unchecked_box_inner_merged_animation.xml.flat",
+        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
     },
     {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_material.xml.flat",
         "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_design_bottom_navigation_item_background.xml.flat",
+        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\4f3544d200097d1926e6df3e9bf8bd41\\material-1.0.0\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
     },
     {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -88,12 +88,12 @@
         "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\color-v23\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
-        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\color\\abc_tint_edittext.xml"
-    },
-    {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_tint_edittext.xml.flat",
+        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\79892dd34878d500d9084f15e109a3ca\\appcompat-1.1.0\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_personal_details.xml.flat",
@@ -276,12 +276,12 @@
         "source": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\src\\main\\res\\layout\\activity_register.xml"
     },
     {
-        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21_mtrl_fast_out_slow_in.xml.flat",
-        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\4f3544d200097d1926e6df3e9bf8bd41\\material-1.0.0\\res\\interpolator-v21\\mtrl_fast_out_slow_in.xml"
-    },
-    {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\290377ef3f04af0b2bf13aa0b54ad202\\core-1.1.0\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\interpolator-v21_mtrl_fast_out_slow_in.xml.flat",
+        "source": "C:\\Users\\nitzan\\.gradle\\caches\\transforms-2\\files-2.1\\4f3544d200097d1926e6df3e9bf8bd41\\material-1.0.0\\res\\interpolator-v21\\mtrl_fast_out_slow_in.xml"
     },
     {
         "merged": "D:\\Desktop\\Android Projects\\bureaucratMe\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
