@@ -26,7 +26,6 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView txt;
     private Button firstEntity, secondEntity;
-    private FillDocument fp;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference mReference;
 
@@ -52,10 +51,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
 //                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
                 Intent i = new Intent(HomeActivity.this, FormChooserActivity.class);
+
                 i.putExtra("institution", "MaccabiHMO");
                 i.putExtra("file", "maccabi1.pdf");
+                i.putExtra("src", src);
+                i.putExtra("dest", dest);
+
                 startActivity(i);
             }
         });
@@ -68,6 +72,12 @@ public class HomeActivity extends AppCompatActivity {
 
                 i.putExtra("institution", "MaccabiHMO");
                 i.putExtra("file", "maccabi1.pdf");
+                String src = Environment.getExternalStorageDirectory().getAbsolutePath() + "/pdf2.pdf";
+                String dest = Environment.getExternalStorageDirectory().getAbsolutePath() + "/newpdf2.pdf";
+                Intent i = new Intent(HomeActivity.this, DocumentActivity.class);
+//                Intent i = new Intent(HomeActivity.this, AdminActivity.class);
+                i.putExtra("src", src);
+                i.putExtra("dest", dest);
 
                 startActivity(i);
             }

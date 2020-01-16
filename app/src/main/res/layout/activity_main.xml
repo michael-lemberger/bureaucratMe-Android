@@ -20,6 +20,15 @@
         />
 
     <Button
+        android:id="@+id/btnSignInAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Log In"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        />
+
+    <Button
         android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

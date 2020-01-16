@@ -22,6 +22,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
 
     private SignInButton btnGmailSignIn;
@@ -32,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private final static int RC_SIGN_IN = 123;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,21 +70,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Check if email and password not empty
-                if (etEmail.getText().toString().isEmpty() || etPass.getText().toString().isEmpty()) {
+                final String email = etEmail.getText().toString();
+                String password = etPass.getText().toString();
+                if (email.isEmpty()|| password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Login ith email
-                    mAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPass.getText().toString())
+                    // Login with email
+                    mAuth.signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     // If login successfully open home activity and finish current activity
                                     // Else show error massage
                                     if (task.isSuccessful()) {
-                                        Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(i);
-                                        finish();
+                                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                            startActivity(i);
+                                            finish();
                                     } else {
                                         Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
@@ -149,4 +154,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }

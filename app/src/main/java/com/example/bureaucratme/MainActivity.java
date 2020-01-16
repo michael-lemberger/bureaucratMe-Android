@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnRegister;
     private Button btnLogin;
+    private Button btnLoginAdmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnLoginAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, AdminLoginActivity.class);
                 startActivity(i);
             }
         });
@@ -46,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         btnRegister = findViewById(R.id.btnSignUp);
         btnLogin = findViewById(R.id.btnSignIn);
+        btnLoginAdmin = findViewById(R.id.btnSignInAdmin);
 
     }
 }

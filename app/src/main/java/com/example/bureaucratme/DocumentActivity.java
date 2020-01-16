@@ -48,6 +48,7 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
     private Button btnSend, btnView, btnUpdate, btnDownload;
     private FirebaseUser fu;
     private FirebaseAuth mAuth;
+    private Document doc;
     private FillDocument fd;
     private String dest, src, institutionName, fileName;
     private StorageReference storageRef;
@@ -81,7 +82,7 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
 
         fd = new FillDocument(mAuth, fu, src, dest);
 
-        fd.readFromDatabase();
+        doc.readValues();
 
         downloadDoc();
         viewDoc();
@@ -126,7 +127,9 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fd.readFromDatabase();
+
+                doc.readValues();
+
                 fd.fillToPdf();
 
                 openDoc();
@@ -138,6 +141,8 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                doc.readValues();
+                fd.fillToPdf();
 
                 // need to do
 
