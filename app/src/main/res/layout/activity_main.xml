@@ -13,37 +13,43 @@
 
     <Button
         android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log In"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="350dp"
         style="@style/buttonStyle"
-        />
+        android:layout_width="348dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:text="Log In"
+         />
 
     <Button
         android:id="@+id/btnSignInAdmin"
-        android:layout_width="wrap_content"
+        style="@style/buttonStyle"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:text="Admin Log In"
+        android:layout_weight="1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        style="@style/buttonStyle" />
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/btnSignIn"
+        android:text="Admin Log In"
+        />
+
 
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_width="wrap_content"
+        style="@style/buttonStyle"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_below="@+id/btnSignIn"
-        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/btnSignInAdmin"
         android:layout_centerHorizontal="true"
-        style="@style/buttonStyle"/>
+        android:layout_marginTop="25dp"
+        android:text="Register" />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gifImg"
-        android:src="@drawable/mainscreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/buttonStyle"/>
+<!--    <pl.droidsonroids.gif.GifImageView-->
+<!--        android:id="@+id/gifImg"-->
+<!--        android:src="@drawable/mainscreen"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        />-->
 </RelativeLayout>

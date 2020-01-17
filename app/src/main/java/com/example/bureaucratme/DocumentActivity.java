@@ -62,12 +62,12 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
 
         Intent intent = getIntent();
         institutionName = intent.getStringExtra("institution");
-        fileName = intent.getStringExtra("file");
+        fileName = intent.getStringExtra("filename");
         src = Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty/" + fileName;
         dest = Environment.getExternalStorageDirectory() + "/BurecrateMe/" + fileName;
 
-        Log.d("SOURCE: ", src);
-        Log.d("DESTINATION: ", dest);
+        Log.d("institution: ", institutionName);
+        Log.d("filename: ", fileName);
 
         removeFile(src);
         removeFile(dest);
@@ -82,7 +82,7 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
 
         fd = new FillDocument(mAuth, fu, src, dest);
 
-        doc.readValues();
+//        doc.readValues();
 
         downloadDoc();
         viewDoc();
@@ -288,7 +288,7 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
 
         createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty");
         registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-        downloadEmptyPdf();
+//        downloadEmptyPdf();
         unregisterReceiver(onDownloadComplete);
 
         fd.fillToPdf();

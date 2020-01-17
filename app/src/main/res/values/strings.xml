@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BureaucratMe</string>
+    <string name="app_name"></string>
     <string name="id">מספר זהות</string>
     <string name="save">save</string>
     <string name="family_name">family name</string>

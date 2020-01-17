@@ -7,27 +7,15 @@
     android:background="@drawable/photo">
     tools:context=".FormChooserActivity">
 
-<!--    <Button-->
-<!--        android:id="@+id/btnForm"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Form 1"-->
-<!--        android:layout_marginTop="200dp"-->
-<!--        android:layout_centerHorizontal="true" />-->
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+        android:id="@+id/formChooserRecycler"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

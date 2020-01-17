@@ -4,113 +4,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/photo">
+    android:background="@drawable/photo"
     tools:context=".PersonalDetailsActivity">
-
-    <TextView
-        android:id="@+id/tvPersonalDetails"
-        android:layout_marginTop="10dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Personal Details"
-        />
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:id="@+id/tvPersonalDetails"
+                android:layout_marginTop="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Personal Details"
+                />
 
-    <EditText
-        android:id="@+id/etId"
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="ID"
-        android:inputType="number"
-        android:maxLength="9"
-        android:maxLines="1"
-        />
+            <EditText
+                android:id="@+id/etId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:hint="ID"
+                android:inputType="number"
+                android:maxLength="9"
+                android:maxLines="1" />
 
-    <EditText
-        android:id="@+id/etFirstName"
-        android:layout_marginTop="90dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="First Name"
-        android:maxLines="1"
-        android:inputType="text"
-        />
+            <EditText
+                android:id="@+id/etFirstName"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_below="@+id/etId"
+                />
 
-    <EditText
-        android:id="@+id/etFamilyName"
-        android:layout_marginTop="140dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Family Name"
-        android:maxLines="1"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/etFamilyName"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Family Name"
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_below="@+id/etFirstName"
+                />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_marginTop="190dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"/>
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:layout_below="@+id/etFamilyName"
+                />
 
-    <EditText
-        android:id="@+id/etPhoneNumber"
-        android:layout_marginTop="240dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number"
-        android:inputType="phone"
-        android:maxLength="10"
-        android:maxLines="1"/>
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:layout_below="@+id/etEmail"
+                />
 
-    <Button
-        android:id="@+id/btnBirthDate"
-        android:layout_marginTop="290dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="choose Birthdate"/>
+            <Button
+                android:id="@+id/btnBirthDate"
+                android:layout_marginTop="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="choose Birthdate"
+                android:layout_below="@+id/etPhoneNumber"
+                />
 
-    <TextView
-        android:id="@+id/tvBirthDate"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="200dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Birthdate"/>
+            <TextView
+                android:id="@+id/tvBirthDate"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Birthdate"
+                android:layout_below="@+id/btnBirthDate"
+                />
 
-    <EditText
-        android:id="@+id/etStreet"
-        android:layout_marginTop="340dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Street"
-        android:maxLines="1"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/etStreet"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Street"
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_below="@+id/tvBirthDate"
+                />
 
-    <EditText
-        android:id="@+id/etCity"
-        android:layout_marginTop="390dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="City"
-        android:maxLines="1"
-        android:inputType="text" />
+            <EditText
+                android:id="@+id/etCity"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="City"
+                android:maxLines="1"
+                android:inputType="text"
+                android:layout_below="@+id/etStreet"
+                />
 
-    <EditText
-        android:id="@+id/etZip"
-        android:layout_marginTop="440dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Zip"
-        android:maxLines="1"
-        android:inputType="number" />
+            <EditText
+                android:id="@+id/etZip"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Zip"
+                android:maxLines="1"
+                android:inputType="number"
+                android:layout_below="@+id/etCity"
+                />
 
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_marginTop="490dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Save" />
-
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Save"
+                android:layout_below="@+id/etZip"
+                />
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

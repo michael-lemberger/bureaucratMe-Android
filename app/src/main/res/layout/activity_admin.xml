@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="100dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag3"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="160dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag4"
@@ -29,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="216dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag5"
@@ -37,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="277dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag6"
@@ -45,7 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="341dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag7"
@@ -53,7 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="396dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag8"
@@ -61,7 +67,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="450dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <EditText
         android:id="@+id/docTag9"
@@ -69,7 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/title"
         android:layout_marginTop="508dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <TextView
         android:id="@+id/title"
@@ -77,14 +85,16 @@
         android:layout_height="wrap_content"
         android:text="Add document"
         android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        />
 
     <EditText
         android:id="@+id/docTag1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="TextView" />
+        android:text="TextView"
+        />
 
     <Spinner
         android:id="@+id/dbTags_spinner1"

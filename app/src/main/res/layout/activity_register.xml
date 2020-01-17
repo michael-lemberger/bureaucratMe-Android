@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        />
 
     <EditText
         android:id="@+id/etPassword"
@@ -22,7 +23,8 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/etEmail"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        />
 
     <Button
         android:id="@+id/btnRegister"
@@ -31,6 +33,7 @@
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/etPassword"
-        android:text="Sign Up" />
+        android:text="Sign Up"
+        style="@style/buttonStyle"/>
 
 </RelativeLayout>
