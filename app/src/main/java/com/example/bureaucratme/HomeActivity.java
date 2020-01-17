@@ -112,7 +112,7 @@ public class HomeActivity extends AppCompatActivity {
                     arrayList.add(ds.child("name").getValue(String.class));
                 }
 
-                mAdapter = new MyAdapter(HomeActivity.this, arrayList, 2);
+                mAdapter = new MyAdapter(HomeActivity.this, arrayList, ActivityEnum.HOMEACTIVITY);
                 recyclerView.setAdapter(mAdapter);
             }
 

@@ -9,7 +9,7 @@ public class FilesData {
     private String institutionName;
     private String nameInStorage;
 
-//    public FilesData() {}
+    public FilesData() {}
 
     public FilesData( String urlLink, String filename, String institutionName, String nameInStorage) {
         this.urlLink = urlLink;

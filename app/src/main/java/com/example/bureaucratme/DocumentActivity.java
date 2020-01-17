@@ -29,6 +29,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
@@ -48,11 +53,13 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
     private Button btnSend, btnView, btnUpdate, btnDownload;
     private FirebaseUser fu;
     private FirebaseAuth mAuth;
-    private Document doc;
     private FillDocument fd;
     private String dest, src, institutionName, fileName;
     private StorageReference storageRef;
     private FirebaseStorage storage;
+    private FilesData filesData;
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
 
 
     @Override
@@ -64,7 +71,7 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
         institutionName = intent.getStringExtra("institution");
         fileName = intent.getStringExtra("filename");
         src = Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty/" + fileName;
-        dest = Environment.getExternalStorageDirectory() + "/BurecrateMe/" + fileName;
+        dest = Environment.getExternalStorageDirectory() + "/BurecrateMe/Full/" + fileName;
 
         Log.d("institution: ", institutionName);
         Log.d("filename: ", fileName);
@@ -76,19 +83,65 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
 
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
+//        databaseReference = firebaseDatabase.getReference("FilesData");
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("FilesData");
 
         mAuth = FirebaseAuth.getInstance();
         fu = mAuth.getCurrentUser();
 
-        fd = new FillDocument(mAuth, fu, src, dest);
 
-//        doc.readValues();
+        fd = new FillDocument(mAuth, fu, src, dest);
+        fd.readFromDatabase();
+
+        createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty");
+        createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/Full");
+
+        registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        downloadEmptyPdf();
+        unregisterReceiver(onDownloadComplete);
 
         downloadDoc();
         viewDoc();
         sendDoc();
         updateDoc();
     }
+
+    private void readDataFile() {
+        DatabaseReference ref = databaseReference.child(fu.getUid()).child(institutionName);
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if(ds.child("InstitutionName").getValue().equals(institutionName)) {
+                         FilesData filesData = new FilesData(ds.child("Link").getValue(String.class),
+                                ds.child("FileName").getValue(String.class),
+                                ds.child("InstitutionName").getValue(String.class),
+                                ds.child("NameInStorage").getValue(String.class));
+                    }
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 
     private void downloadDoc() {
         btnDownload.setOnClickListener(new View.OnClickListener() {
@@ -127,12 +180,11 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
         btnView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            fd.readFromDatabase();
 
-                doc.readValues();
+            fd.fillToPdf();
 
-                fd.fillToPdf();
-
-                openDoc();
+            openDoc();
             }
         });
     }
@@ -141,7 +193,6 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doc.readValues();
                 fd.fillToPdf();
 
                 // need to do
@@ -203,8 +254,12 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
             @Override
             public void onSuccess(Uri uri) {
                 downloadPdf(uri, Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty/" + fileName,
-                        DownloadManager.Request.VISIBILITY_HIDDEN);
+                        DownloadManager.Request.VISIBILITY_VISIBLE);
 
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
             }
         });
     }
@@ -215,7 +270,8 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
         reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                downloadPdf(uri, Environment.DIRECTORY_DOWNLOADS, DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                downloadPdf(uri, Environment.DIRECTORY_DOWNLOADS,
+                        DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -271,33 +327,34 @@ public class DocumentActivity extends AppCompatActivity implements Upload, Downl
 //        });
 //    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//
+//        removeFile(src);
+//        removeFile(dest);
+//    }
 
-        removeFile(src);
-        removeFile(dest);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        removeFile(src);
-        removeFile(dest);
-
-        createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty");
-        registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        removeFile(src);
+//        removeFile(dest);
+//
+//        createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/Empty");
+//        registerReceiver(onDownloadComplete,new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
 //        downloadEmptyPdf();
-        unregisterReceiver(onDownloadComplete);
-
-        fd.fillToPdf();
-    }
+//        unregisterReceiver(onDownloadComplete);
+//
+//        fd.fillToPdf();
+//    }
 
     BroadcastReceiver onDownloadComplete = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d("Download ", "Completed");
+            fd.fillToPdf();
 
         }
     };
