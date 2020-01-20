@@ -109,6 +109,7 @@ public class DocumentActivity extends AppCompatActivity {
         if(!f) {
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
+        boolean f1 = createFolder(src);
         Log.d("permissions: ", hasPermissions(this, PERMISSIONS)+"");
         Log.d("createfolder: ", createFolder(src)+"");
         Log.d("institution: ", institutionName);
