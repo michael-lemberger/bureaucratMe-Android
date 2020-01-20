@@ -109,6 +109,7 @@ public class DocumentActivity extends AppCompatActivity {
         if(!f) {
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
+        createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/");
         boolean f1 = createFolder(src);
         Log.d("permissions: ", hasPermissions(this, PERMISSIONS)+"");
         Log.d("createfolder: ", createFolder(src)+"");

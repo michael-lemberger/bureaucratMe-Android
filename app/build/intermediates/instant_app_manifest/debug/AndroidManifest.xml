@@ -32,6 +32,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.bureaucratme.splashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.bureaucratme.PdfViewerActivity" />
         <activity android:name="com.example.bureaucratme.FormChooserActivity" />
         <activity android:name="com.example.bureaucratme.AdminLoginActivity" />
@@ -42,11 +49,13 @@
         <activity android:name="com.example.bureaucratme.LoginActivity" />
         <activity android:name="com.example.bureaucratme.HomeActivity" />
         <activity android:name="com.example.bureaucratme.MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <service

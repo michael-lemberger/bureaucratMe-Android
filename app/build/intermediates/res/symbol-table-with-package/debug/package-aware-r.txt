@@ -1100,6 +1100,7 @@ drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable img
 drawable mainscreen
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1287,6 +1288,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -1485,6 +1487,7 @@ layout activity_main
 layout activity_pdf_viewer
 layout activity_personal_details
 layout activity_register
+layout activity_splash
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
