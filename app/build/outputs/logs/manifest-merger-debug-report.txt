@@ -14,6 +14,7 @@ MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\liron\.gradle\ca
 MERGED from [com.google.android.gms:play-services-auth:17.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\6cdc5333147a96546fcfd83b4ef50574\play-services-auth-17.0.0\AndroidManifest.xml:17:1-39:12
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\3e94299e7fa86036634e35c7f246d2fc\jetified-android-gif-drawable-1.2.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.barteksc:android-pdf-viewer:2.8.2] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\0dae0a8e9404279c46564433e070d07b\jetified-android-pdf-viewer-2.8.2\AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.ybq:Android-SpinKit:1.4.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\042ac1fcd91aa76c194612f87ab22fcb\Android-SpinKit-1.4.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\2ed9ac81f3f164fa54e06cf022dde970\firebase-auth-interop-19.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\faaede8b859b7fb86aa797a8778ac5a2\play-services-auth-api-phone-17.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-auth-base:17.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\99d30c86c3aeaa81facc1dd74be108af\play-services-auth-base-17.0.0\AndroidManifest.xml:2:1-7:12
@@ -260,6 +261,8 @@ MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.0] C:\Users\liron\.gr
 MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\3e94299e7fa86036634e35c7f246d2fc\jetified-android-gif-drawable-1.2.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.barteksc:android-pdf-viewer:2.8.2] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\0dae0a8e9404279c46564433e070d07b\jetified-android-pdf-viewer-2.8.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.barteksc:android-pdf-viewer:2.8.2] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\0dae0a8e9404279c46564433e070d07b\jetified-android-pdf-viewer-2.8.2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.ybq:Android-SpinKit:1.4.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\042ac1fcd91aa76c194612f87ab22fcb\Android-SpinKit-1.4.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.ybq:Android-SpinKit:1.4.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\042ac1fcd91aa76c194612f87ab22fcb\Android-SpinKit-1.4.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\2ed9ac81f3f164fa54e06cf022dde970\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\2ed9ac81f3f164fa54e06cf022dde970\firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.0.0] C:\Users\liron\.gradle\caches\transforms-2\files-2.1\faaede8b859b7fb86aa797a8778ac5a2\play-services-auth-api-phone-17.0.0\AndroidManifest.xml:5:5-44

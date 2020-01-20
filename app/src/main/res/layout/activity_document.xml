@@ -7,21 +7,12 @@
     android:background="@drawable/photo">
     tools:context=".DocumentActivity">
 
-    <Button
-        android:id="@+id/btnDownload"
-        android:layout_width="348dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:text="Download Document"
-        android:layout_centerHorizontal="true"
-        style="@style/buttonStyle"/>/>
 
     <Button
         android:id="@+id/btnView"
         android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/btnDownload"
+        android:layout_marginTop="250dp"
         android:text="View Docment"
         android:layout_centerHorizontal="true"
         style="@style/buttonStyle"/>
@@ -45,12 +36,5 @@
         android:text="Send Document"
         android:layout_centerHorizontal="true"
         style="@style/buttonStyle"/>
-
-    <ProgressBar
-        android:id="@+id/progressBarDoc"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
 
 </RelativeLayout>

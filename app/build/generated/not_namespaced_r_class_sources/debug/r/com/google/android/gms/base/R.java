@@ -12,12 +12,12 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int buttonSize = 0x7f040057;
-        public static final int circleCrop = 0x7f04007c;
-        public static final int colorScheme = 0x7f040093;
-        public static final int imageAspectRatio = 0x7f04010a;
-        public static final int imageAspectRatioAdjust = 0x7f04010b;
-        public static final int scopeUris = 0x7f0401a0;
+        public static final int buttonSize = 0x7f04005a;
+        public static final int circleCrop = 0x7f04007f;
+        public static final int colorScheme = 0x7f040096;
+        public static final int imageAspectRatio = 0x7f04010d;
+        public static final int imageAspectRatioAdjust = 0x7f04010e;
+        public static final int scopeUris = 0x7f0401a3;
     }
     public static final class color {
         private color() {}
@@ -62,15 +62,15 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int adjust_height = 0x7f09003c;
-        public static final int adjust_width = 0x7f09003d;
-        public static final int auto = 0x7f090042;
-        public static final int dark = 0x7f090066;
-        public static final int icon_only = 0x7f0900a5;
-        public static final int light = 0x7f0900b0;
-        public static final int none = 0x7f0900c0;
-        public static final int standard = 0x7f0900fd;
-        public static final int wide = 0x7f09012a;
+        public static final int adjust_height = 0x7f09004b;
+        public static final int adjust_width = 0x7f09004c;
+        public static final int auto = 0x7f090051;
+        public static final int dark = 0x7f090075;
+        public static final int icon_only = 0x7f0900b4;
+        public static final int light = 0x7f0900bf;
+        public static final int none = 0x7f0900cf;
+        public static final int standard = 0x7f09010b;
+        public static final int wide = 0x7f090138;
     }
     public static final class string {
         private string() {}
@@ -96,11 +96,11 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] LoadingImageView = { 0x7f04007c, 0x7f04010a, 0x7f04010b };
+        public static final int[] LoadingImageView = { 0x7f04007f, 0x7f04010d, 0x7f04010e };
         public static final int LoadingImageView_circleCrop = 0;
         public static final int LoadingImageView_imageAspectRatio = 1;
         public static final int LoadingImageView_imageAspectRatioAdjust = 2;
-        public static final int[] SignInButton = { 0x7f040057, 0x7f040093, 0x7f0401a0 };
+        public static final int[] SignInButton = { 0x7f04005a, 0x7f040096, 0x7f0401a3 };
         public static final int SignInButton_buttonSize = 0;
         public static final int SignInButton_colorScheme = 1;
         public static final int SignInButton_scopeUris = 2;
