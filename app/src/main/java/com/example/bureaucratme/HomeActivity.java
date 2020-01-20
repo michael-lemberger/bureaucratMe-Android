@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -36,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference mReference;
     private RecyclerView recyclerView;
-    private ArrayList<String> arrayList = new ArrayList<>();
+    private List<String> arrayList;
     private MyAdapter mAdapter;
     private DatabaseReference institutionReference;
 
@@ -52,16 +54,27 @@ public class HomeActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         fu = mAuth.getCurrentUser();
 //        if(fu != null) { }
+        arrayList = new ArrayList<>();
 
         init();
 
-        readFromFirebase();
+//        readFromFirebase();
+//        readData2();
+
+        readData(new FirebaseCallback() {
+            @Override
+            public void onCallback(List<String> list) {
+                mAdapter = new MyAdapter(HomeActivity.this, (ArrayList)list, ActivityEnum.HOMEACTIVITY);
+                recyclerView.setAdapter(mAdapter);
+                arrayList = list;
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu,menu);
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -93,18 +106,13 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
+    private void init() {
         recyclerView = findViewById(R.id.homeRecycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void readFromFirebase() {
-        if(arrayList.size() > 0)
-            arrayList.clear();
-
-//        DatabaseReference institution = mReference.child("EmptyFiles").child(institution);
-
+    private void readData(final FirebaseCallback firebaseCallback) {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -112,17 +120,19 @@ public class HomeActivity extends AppCompatActivity {
                     arrayList.add(ds.child("name").getValue(String.class));
                 }
 
-                mAdapter = new MyAdapter(HomeActivity.this, arrayList, ActivityEnum.HOMEACTIVITY);
-                recyclerView.setAdapter(mAdapter);
+                firebaseCallback.onCallback(arrayList);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Log.d("FAIL", "Fail");
             }
         };
 
         institutionReference.addListenerForSingleValueEvent(valueEventListener);
     }
 
+    private interface FirebaseCallback {
+        void onCallback(List<String> list);
+    }
 }

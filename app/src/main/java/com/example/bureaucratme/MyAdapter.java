@@ -51,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int position) {
         if(this.activityEnum == ActivityEnum.FORMCHOOSERACTIVITY) {
-            myViewHolder.getBtnFileName().setText(((FilesData) arrayList.get(position)).getFilename());
+            myViewHolder.getBtnFileName().setText(((FilesData) arrayList.get(position)).getFileName());
 
             myViewHolder.getBtnFileName().setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -59,6 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                     Intent i = new Intent(activity, DocumentActivity.class);
                     i.putExtra("institution", ((FilesData) arrayList.get(position)).getInstitutionName());
                     i.putExtra("filename", ((FilesData) arrayList.get(position)).getNameInStorage());
+                    i.putExtra("size", position);
                     context.startActivity(i);
                 }
             });

@@ -73,10 +73,10 @@ public class FormChooserActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    FilesData filesData = new FilesData(ds.child("Link").getValue(String.class),
-                            ds.child("FileName").getValue(String.class),
-                            ds.child("InstitutionName").getValue(String.class),
-                            ds.child("NameInStorage").getValue(String.class));
+                    FilesData filesData = new FilesData(ds.child("urlLink").getValue(String.class),
+                            ds.child("fileName").getValue(String.class),
+                            ds.child("institutionName").getValue(String.class),
+                            ds.child("nameInStorage").getValue(String.class));
 
                     arrayList.add(filesData);
                 }

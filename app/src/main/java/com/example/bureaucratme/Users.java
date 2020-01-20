@@ -20,6 +20,11 @@ public class Users {
         this.dbId = dbId;
     }
 
+    public Users(Users users) {
+        this(users.id, users.firstName, users.lastName, users.email, users.phoneNumber,
+                users.birthdate, users.street, users.city, users.zip, users.dbId);
+    }
+
     public String getBirthdate() { return birthdate; }
 
     public void setBirthdate(String birthdate) {

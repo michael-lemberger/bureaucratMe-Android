@@ -46,4 +46,11 @@
         android:layout_centerHorizontal="true"
         style="@style/buttonStyle"/>
 
+    <ProgressBar
+        android:id="@+id/progressBarDoc"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
 </RelativeLayout>

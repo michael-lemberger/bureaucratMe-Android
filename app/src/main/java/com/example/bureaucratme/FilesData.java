@@ -5,15 +5,15 @@ import androidx.annotation.NonNull;
 public class FilesData {
 
     private String urlLink;
-    private String filename;
+    private String fileName;
     private String institutionName;
     private String nameInStorage;
 
     public FilesData() {}
 
-    public FilesData( String urlLink, String filename, String institutionName, String nameInStorage) {
+    public FilesData( String urlLink, String fileName, String institutionName, String nameInStorage) {
         this.urlLink = urlLink;
-        this.filename = filename;
+        this.fileName = fileName;
         this.institutionName = institutionName;
         this.nameInStorage = nameInStorage;
     }
@@ -26,12 +26,12 @@ public class FilesData {
         this.urlLink = urlLink;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFileName(String filename) {
+        this.fileName = filename;
     }
 
     public String getInstitutionName() {

@@ -38,6 +38,7 @@ public class PersonalDetailsActivity extends AppCompatActivity {
     private TextView tvBirthDate;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference mReference;
+    private boolean flag;
 
     FirebaseAuth mAuth;
     FirebaseUser fu;
@@ -47,6 +48,9 @@ public class PersonalDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_details);
+
+        Intent intent = getIntent();
+        flag = intent.getBooleanExtra("finish", false);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         mReference = firebaseDatabase.getReference("Users");
@@ -66,6 +70,8 @@ public class PersonalDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 addUser();
+                if(flag)
+                    finish();
             }
         });
 

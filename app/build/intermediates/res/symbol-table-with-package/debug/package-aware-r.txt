@@ -1327,6 +1327,7 @@ id pdfView
 id percent
 id personalDetails
 id pin
+id progressBarDoc
 id progress_circular
 id progress_horizontal
 id radio
