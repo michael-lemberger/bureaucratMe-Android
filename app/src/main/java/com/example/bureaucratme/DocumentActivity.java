@@ -12,6 +12,7 @@ import android.Manifest;
 import android.app.DownloadManager;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -71,8 +72,7 @@ import java.util.Map;
 
 public class DocumentActivity extends AppCompatActivity {
 
-    private Button btnSend, btnView, btnUpdate, btnDownload;
-    private ProgressBar progressBar;
+    private Button btnSend, btnView, btnUpdate;
     private FirebaseUser fu;
     private FirebaseAuth mAuth;
     private String dest, src, institutionName, fileName;
@@ -83,6 +83,8 @@ public class DocumentActivity extends AppCompatActivity {
     private HashMap<String, String> userInfo, pdfLinks;
     private boolean isUpload, emptyFile, down;
     public int x;
+
+    ProgressDialog progressDialog;
 
     int PERMISSION_ALL = 1;
     String[] PERMISSIONS = {
@@ -97,6 +99,7 @@ public class DocumentActivity extends AppCompatActivity {
         userInfo = new HashMap<>();
         pdfLinks = new HashMap<>();
 
+
         Intent intent = getIntent();
         x = intent.getIntExtra("size", 0);
         institutionName = intent.getStringExtra("institution");
@@ -105,13 +108,15 @@ public class DocumentActivity extends AppCompatActivity {
         dest = Environment.getExternalStorageDirectory() + "/BurecrateMe/Full/";
 
 
+
         boolean f = hasPermissions(this, PERMISSIONS);
         if(!f) {
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
         }
+        createFolder(Environment.getExternalStorageDirectory() + "/BurecrateMe/");
         boolean f1 = createFolder(src);
         Log.d("permissions: ", hasPermissions(this, PERMISSIONS)+"");
-        Log.d("createfolder: ", createFolder(src)+"");
+        Log.d("createfolder: ", f1+"");
         Log.d("institution: ", institutionName);
         Log.d("filename: ", fileName);
 
@@ -131,23 +136,6 @@ public class DocumentActivity extends AppCompatActivity {
         isUpload = true;
         emptyFile = true;
         down = true;
-
-//        readFile(new FirebaseCallback() {
-//            @Override
-//            public void onCallback(Map<String, String> map) {
-//                if(down)
-//                    new Downloader().execute(map.get("Link"));
-//                else
-//                    openPdf(map.get("Link"));
-//                    new Downloader().execute("https://firebasestorage.googleapis.com/v0/b/bureaucratme-be01d.appspot.com/o/Uploads%2FMaccabiHMO%2Fmaccabi1.pdf?alt=media&token=305b2b4a-3ee6-4f56-ae54-440d9001bc3b");
-//
-//            }
-//        });
-
-//        downloadDoc();
-//        viewDoc();
-//        sendDoc();
-//        updateDoc();
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -320,6 +308,8 @@ public class DocumentActivity extends AppCompatActivity {
                         filesReference.child(fu.getUid()).child(institutionName).child("File" + (x+1)).setValue(filesData);
                         Log.d("URI", uri.toString());
                         Log.d("URI", taskSnapshot.getMetadata().getName());
+                        progressDialog.dismiss();
+                        Toast.makeText(DocumentActivity.this, "GOOD", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -396,9 +386,6 @@ public class DocumentActivity extends AppCompatActivity {
         btnSend = findViewById(R.id.btnSend);
         btnView = findViewById(R.id.btnView);
         btnUpdate = findViewById(R.id.btnUpdate);
-        btnDownload = findViewById(R.id.btnDownload);
-
-        progressBar = findViewById(R.id.progressBarDoc);
     }
 
 
@@ -474,6 +461,15 @@ final int id = 101;
             createFolder(src);
             createFolder(dest);
 
+
+            progressDialog = new ProgressDialog(DocumentActivity.this);
+            progressDialog.setMessage("Please wait...");
+            progressDialog.setTitle("Asd");
+            progressDialog.setIndeterminate(false);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+//            progressDialog.set
+            progressDialog.setIcon(R.drawable.photo);
             Log.d("Download", "Start");
         }
 
